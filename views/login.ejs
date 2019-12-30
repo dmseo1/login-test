@@ -7,9 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<script>
+    function print() {
 
+        var id = document.getElementsByName("id")[0].value;
+        var pw = document.getElementsByName("pw")[0].value;
+        var p = document.getElementsByTagName("p")[0];
+        p.innerHTML = `ID: ${id}<br> PW: ${pw}`;
+    }
+</script>
 <body>
-    <form method="POST">
+    <form action="/process/login" method="POST">
         <h1>로그인 페이지</h1>
         <table>
             <tr>
@@ -21,10 +29,12 @@
                 <td> <input type="password" name="pw"/> </td>
             </tr>
             <tr>
-                <td colspan="2"> <input type="submit" value="로그인" /> </td>
+                <td colspan="2"> <input type="submit"  value="로그인"/> </td>
             </tr>
         </table>
 
+        <h2>아이디는 <%= dataId %></h2>
+        <h2>패스워드는 <%= dataPw %></h2>
     </form>
 </body>
 
